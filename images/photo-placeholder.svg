@@ -1,0 +1,28 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Foto belum tersedia</title>
+  <desc id="desc">Placeholder untuk foto pengalaman portofolio.</desc>
+  <rect width="1200" height="900" fill="#161b22"/>
+  <rect x="48" y="48" width="1104" height="804" rx="24" fill="#1c2128" stroke="#30363d" stroke-width="4" stroke-dasharray="18 18"/>
+  <circle cx="414" cy="330" r="78" fill="#30363d"/>
+  <path d="M202 676L437 489L560 612L696 452L998 676H202Z" fill="#30363d"/>
+  <text x="600" y="754" text-anchor="middle" fill="#f6ad55" font-family="Arial, sans-serif" font-size="42" font-weight="700">FOTO BELUM DITAMBAHKAN</text>
+  <text x="600" y="810" text-anchor="middle" fill="#7d8590" font-family="Arial, sans-serif" font-size="28">Ganti file sesuai nama di folder images</text>
+</svg>
+- `dpm-fasilkom-umb-3.jpg`
+- `webinar-digibuild-2025-1.jpg`
+- `webinar-digibuild-2025-2.jpg`
+- `webinar-digibuild-2025-3.jpg`
+- `english-event-mbec-1.jpg`
+- `english-event-mbec-2.jpg`
+- `english-event-mbec-3.jpg`
+- `mercu-buana-english-club-1.jpg`
+- `mercu-buana-english-club-2.jpg`
+- `mercu-buana-english-club-3.jpg`
+- `komite-kpps-1.jpg`
+- `komite-kpps-2.jpg`
+- `komite-kpps-3.jpg`
+- `karang-taruna-rt-005-1.jpg`
+- `karang-taruna-rt-005-2.jpg`
+- `karang-taruna-rt-005-3.jpg`
+
+Jika format foto kamu `.png`, ubah nama file di `data.js` dari `.jpg` menjadi `.png`.

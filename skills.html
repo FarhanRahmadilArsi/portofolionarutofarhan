@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skill Farhan Rahmadil Arsi dalam web, data, AI, dan software development.">
+  <title>Skills | Farhan Rahmadil Arsi Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="naruto_addon.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+  <nav class="site-nav" aria-label="Navigasi utama">
+    <a class="logo" href="shinobi_digital_portfolio.html">FARHAN RAHMADIL ARSI<span>.</span>DEV</a>
+    <button class="nav-toggle" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="shinobi_digital_portfolio.html">Home</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="certifications.html">Certifications</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="guestbook.html">Guestbook</a></li>
+    </ul>
+    <div class="status-badge"><span class="dot"></span>SKILLS</div>
+  </nav>
+  <main id="main-content">
+    <section id="skills-sec" aria-labelledby="skills-title">
+      <div class="section-header">
+        <span class="section-tag">// 01</span>
+        <h1 class="section-title" id="skills-title">CHAKRA SKILL GAUGE</h1>
+        <div class="divider-line"></div>
+      </div>
+      <div class="skills-grid" id="skills-grid"></div>
+    </section>
+  </main>
+  <footer class="site-footer" aria-label="Footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-text">© <span id="footer-year"></span> Farhan Rahmadil Arsi Dev. All rights reserved.</div>
+
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('footer-year');
+      if (el) el.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+  <script src="naruto_addon.js"></script>
+</body>
+</html>
+

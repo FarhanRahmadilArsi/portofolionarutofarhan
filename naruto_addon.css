@@ -1,0 +1,538 @@
+/* ============================================================
+   NARUTO SHINOBI ADDON — naruto-addon.css
+   Non-Destructive Enhancement Layer
+   Load AFTER styles.css dan micro-interactions.css
+   ============================================================ */
+
+/* ── CUSTOM PROPERTIES (menyesuaikan palette portofolio) ── */
+:root {
+  --chakra-blue:   #00d2ff;
+  --rasengan-blue: #4fc3f7;
+  --chidori-gold:  #ffe57f;
+  --smoke-white:   rgba(255,255,255,0.18);
+  --kunai-shadow:  rgba(246,173,85,0.6);
+  --ninja-z:       9999;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   1. PIXEL NINJA — KARAKTER BERJALAN (FIXED BOTTOM-RIGHT)
+   Sprite sederhana dibangun dari CSS box-shadow art
+   Otomatis hidden di mobile (< 768px)
+───────────────────────────────────────────────────────────── */
+#pixel-ninja {
+  position: fixed;
+  bottom: 0;
+  right: 24px;
+  z-index: var(--ninja-z);
+  width: 48px;
+  height: 64px;
+  pointer-events: none;
+  /* Sembunyikan di layar kecil */
+}
+
+/* Body ninja dari CSS – tidak perlu gambar eksternal */
+#pixel-ninja .ninja-body {
+  position: relative;
+  width: 48px;
+  height: 64px;
+  animation: ninjaWalk 0.5s steps(1) infinite;
+}
+
+/* Kepala */
+#pixel-ninja .ninja-body::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 14px;
+  width: 20px; height: 20px;
+  background: #FBBF7C;
+  border-radius: 50% 50% 40% 40%;
+  box-shadow:
+    /* headband */
+    0 -4px 0 4px #4A5568,
+    /* rambut kuning naruto */
+    -6px -6px 0 2px #F6AD55,
+    6px -6px 0 2px #F6AD55,
+    /* mata */
+    -4px 4px 0 2px #1A202C,
+    4px 4px 0 2px #1A202C,
+    /* garis pipi */
+    -8px 8px 0 1px #C87941,
+    8px 8px 0 1px #C87941;
+}
+
+/* Badan + jubah oranye */
+#pixel-ninja .ninja-body::after {
+  content: '';
+  position: absolute;
+  top: 20px; left: 8px;
+  width: 32px; height: 28px;
+  background: #ED8936;
+  border-radius: 4px 4px 2px 2px;
+  box-shadow:
+    /* garis tengah jubah */
+    0 0 0 2px #C05621 inset,
+    /* kaos putih dalam */
+    0 2px 0 -1px #E2E8F0 inset;
+}
+
+/* Kaki (frame 1 & 2) — dianimasikan via class */
+.ninja-leg-l,
+.ninja-leg-r {
+  position: absolute;
+  bottom: 0;
+  width: 10px; height: 20px;
+  background: #ED8936;
+  border-radius: 2px;
+  transition: transform 0.25s;
+}
+.ninja-leg-l { left: 10px; transform-origin: top center; }
+.ninja-leg-r { right: 10px; transform-origin: top center; }
+
+/* Lengan */
+.ninja-arm-l,
+.ninja-arm-r {
+  position: absolute;
+  top: 24px;
+  width: 8px; height: 18px;
+  background: #FBBF7C;
+  border-radius: 3px;
+  transform-origin: top center;
+}
+.ninja-arm-l { left: 2px; }
+.ninja-arm-r { right: 2px; }
+
+/* Animasi berjalan */
+@keyframes ninjaWalk {
+  0%   { transform: translateY(0); }
+  25%  { transform: translateY(-3px); }
+  50%  { transform: translateY(0); }
+  75%  { transform: translateY(-2px); }
+  100% { transform: translateY(0); }
+}
+
+.ninja-leg-l { animation: legSwingL 0.5s ease-in-out infinite alternate; }
+.ninja-leg-r { animation: legSwingR 0.5s ease-in-out infinite alternate; }
+.ninja-arm-l { animation: armSwingL 0.5s ease-in-out infinite alternate; }
+.ninja-arm-r { animation: armSwingR 0.5s ease-in-out infinite alternate; }
+
+@keyframes legSwingL {
+  from { transform: rotate(-20deg); }
+  to   { transform: rotate(20deg);  }
+}
+@keyframes legSwingR {
+  from { transform: rotate(20deg);  }
+  to   { transform: rotate(-20deg); }
+}
+@keyframes armSwingL {
+  from { transform: rotate(20deg);  }
+  to   { transform: rotate(-20deg); }
+}
+@keyframes armSwingR {
+  from { transform: rotate(-20deg); }
+  to   { transform: rotate(20deg);  }
+}
+
+/* Efek shadow di bawah karakter */
+#pixel-ninja .ninja-shadow {
+  position: absolute;
+  bottom: -4px;
+  left: 50%; transform: translateX(-50%);
+  width: 30px; height: 6px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 50%;
+  filter: blur(3px);
+  animation: shadowPulse 0.5s ease-in-out infinite alternate;
+}
+@keyframes shadowPulse {
+  from { transform: translateX(-50%) scaleX(1);   opacity: 0.4; }
+  to   { transform: translateX(-50%) scaleX(0.8); opacity: 0.2; }
+}
+
+/* Teks "Dattebayo!" muncul saat hover area ninja */
+#pixel-ninja .ninja-bubble {
+  position: absolute;
+  bottom: 70px; right: 0;
+  background: var(--panel, #161b22);
+  border: 1px solid var(--konoha, #f6ad55);
+  color: var(--konoha, #f6ad55);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 6px 6px 6px 0;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+}
+#pixel-ninja:hover .ninja-bubble {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   2. NARUTO RUNNER — berlari melintasi layar (scroll-triggered)
+   Dipanggil JS saat section #timeline-sec masuk viewport
+───────────────────────────────────────────────────────────── */
+#naruto-runner {
+  position: fixed;
+  bottom: 80px;
+  left: -80px;
+  z-index: calc(var(--ninja-z) - 1);
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  opacity: 0;
+}
+
+#naruto-runner.run-active {
+  animation: runAcross 2.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes runAcross {
+  0%   { left: -80px;           opacity: 1;  }
+  10%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { left: calc(100vw + 80px); opacity: 0; }
+}
+
+/* Naruto runner CSS art */
+.runner-figure {
+  width: 44px; height: 56px;
+  position: relative;
+  animation: runBob 0.25s ease-in-out infinite alternate;
+}
+
+@keyframes runBob {
+  from { transform: translateY(0) rotate(-3deg); }
+  to   { transform: translateY(-5px) rotate(3deg); }
+}
+
+.runner-figure::before {
+  content: '';
+  position: absolute;
+  top: 2px; left: 12px;
+  width: 18px; height: 18px;
+  background: #FBBF7C;
+  border-radius: 50%;
+  box-shadow:
+    0 -3px 0 3px #4A5568,
+    -5px -5px 0 2px #F6AD55,
+    5px -5px 0 2px #F6AD55,
+    -3px 4px 0 2px #1A202C,
+    3px 4px 0 2px #1A202C,
+    -7px 7px 0 1px #C87941,
+    7px 7px 0 1px #C87941;
+}
+.runner-figure::after {
+  content: '';
+  position: absolute;
+  top: 20px; left: 4px;
+  width: 28px; height: 24px;
+  background: #ED8936;
+  border-radius: 3px;
+  box-shadow: 0 0 0 2px #C05621 inset;
+  /* Naruto lari condong ke depan */
+  transform: rotate(-15deg);
+}
+
+/* Afterimage trail */
+.runner-trail {
+  width: 30px; height: 48px;
+  position: relative;
+  margin-right: -10px;
+  opacity: 0.35;
+  filter: blur(1px);
+  animation: runBob 0.25s ease-in-out infinite alternate-reverse;
+}
+.runner-trail::before {
+  content: '';
+  position: absolute;
+  top: 4px; left: 8px;
+  width: 14px; height: 14px;
+  background: rgba(246,173,85,0.5);
+  border-radius: 50%;
+}
+.runner-trail::after {
+  content: '';
+  position: absolute;
+  top: 18px; left: 2px;
+  width: 24px; height: 20px;
+  background: rgba(237,137,54,0.45);
+  border-radius: 3px;
+  transform: rotate(-15deg);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   3. BUTTON HOVER EFFECTS — Kawarimi & Chidori
+───────────────────────────────────────────────────────────── */
+
+/* === KAWARIMI SMOKE (untuk .submit-btn & .contact-card) === */
+.kawarimi-btn {
+  position: relative;
+  overflow: visible !important;
+}
+
+.kawarimi-btn::before,
+.kawarimi-btn::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: none;
+}
+
+/* Asap kiri */
+.kawarimi-btn::before {
+  width: 14px; height: 14px;
+  background: radial-gradient(circle, var(--smoke-white) 40%, transparent 70%);
+  left: -8px; bottom: 4px;
+  filter: blur(3px);
+}
+/* Asap kanan */
+.kawarimi-btn::after {
+  width: 18px; height: 18px;
+  background: radial-gradient(circle, var(--smoke-white) 40%, transparent 70%);
+  right: -8px; bottom: 2px;
+  filter: blur(4px);
+}
+
+.kawarimi-btn:hover::before {
+  animation: smokeL 0.6s ease-out forwards;
+}
+.kawarimi-btn:hover::after {
+  animation: smokeR 0.6s ease-out 0.1s forwards;
+}
+
+@keyframes smokeL {
+  0%   { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  30%  { opacity: 0.9; }
+  100% { opacity: 0; transform: translate(-12px, -20px) scale(2); }
+}
+@keyframes smokeR {
+  0%   { opacity: 0; transform: translate(0, 0) scale(0.5); }
+  30%  { opacity: 0.9; }
+  100% { opacity: 0; transform: translate(12px, -24px) scale(2.2); }
+}
+
+/* Partikel asap tambahan via JS (di-inject dinamis) */
+.smoke-particle {
+  position: absolute;
+  width: 8px; height: 8px;
+  background: radial-gradient(circle, rgba(255,255,255,0.6) 30%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: smokeFloat 0.7s ease-out forwards;
+  z-index: calc(var(--ninja-z) + 10);
+}
+
+@keyframes smokeFloat {
+  0%   { opacity: 0.8; transform: scale(0.5) translateY(0); }
+  100% { opacity: 0;   transform: scale(2.5) translateY(-30px); }
+}
+
+/* === CHIDORI / RASENGAN (untuk tombol nav & link penting) === */
+.chidori-btn {
+  position: relative;
+  overflow: visible !important;
+}
+
+/* Efek kilat saat hover */
+.chidori-btn:hover {
+  text-shadow: 0 0 8px var(--chidori-gold), 0 0 16px var(--chakra-blue) !important;
+}
+
+/* Partikel petir via JS */
+.chidori-spark {
+  position: absolute;
+  width: 3px; height: 3px;
+  background: var(--chidori-gold);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkShoot 0.5s ease-out forwards;
+  z-index: calc(var(--ninja-z) + 10);
+}
+
+@keyframes sparkShoot {
+  0%   { opacity: 1; transform: scale(1) translate(0, 0); }
+  100% { opacity: 0; transform: scale(0) translate(var(--dx), var(--dy)); }
+}
+
+/* Rasengan ring effect saat klik */
+.rasengan-ring {
+  position: absolute;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--rasengan-blue);
+  pointer-events: none;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: rasenganExpand 0.6s ease-out forwards;
+  z-index: calc(var(--ninja-z) + 10);
+  box-shadow: 0 0 8px var(--rasengan-blue), 0 0 16px var(--chakra-blue);
+}
+
+@keyframes rasenganExpand {
+  0%   { transform: translate(-50%, -50%) scale(0);   opacity: 1; }
+  60%  { transform: translate(-50%, -50%) scale(3);   opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(4.5); opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   4. SCROLL INDICATOR — Kunai berputar
+───────────────────────────────────────────────────────────── */
+#kunai-scroll {
+  position: fixed;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--ninja-z);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+  cursor: pointer;
+}
+
+#kunai-scroll.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#kunai-scroll.hidden {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.kunai-icon {
+  width: 24px; height: 40px;
+  position: relative;
+  animation: kunaiSpin 2s linear infinite, kunaiFloat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px var(--kunai-shadow));
+}
+
+/* Kunai SVG inline lewat CSS mask */
+.kunai-icon svg {
+  width: 100%; height: 100%;
+  fill: var(--konoha, #f6ad55);
+}
+
+@keyframes kunaiSpin {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes kunaiFloat {
+  0%, 100% { transform: translateY(0)   rotate(0deg);   }
+  50%       { transform: translateY(6px) rotate(180deg); }
+}
+
+.kunai-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--konoha, #f6ad55);
+  opacity: 0.7;
+  text-transform: uppercase;
+  animation: kunaiFloat 1.5s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   5. CHAKRA CURSOR TRAIL
+───────────────────────────────────────────────────────────── */
+.cursor-orb {
+  position: fixed;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: calc(var(--ninja-z) + 100);
+  mix-blend-mode: screen;
+  transition: opacity 0.3s;
+  animation: orbFade 0.6s ease-out forwards;
+}
+
+@keyframes orbFade {
+  0%   { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(0); opacity: 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   6. SECTION WATERMARK — Konoha leaf subtle
+───────────────────────────────────────────────────────────── */
+.konoha-watermark {
+  position: absolute;
+  right: 16px; top: 16px;
+  width: 48px; height: 48px;
+  opacity: 0.06;
+  pointer-events: none;
+  animation: leafRotate 8s linear infinite;
+}
+
+@keyframes leafRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   7. TOAST "JUTSU ACTIVATED"
+───────────────────────────────────────────────────────────── */
+#jutsu-toast {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--panel, #161b22);
+  border: 1px solid var(--konoha, #f6ad55);
+  color: var(--konoha, #f6ad55);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 2px;
+  padding: 8px 20px;
+  border-radius: 4px;
+  z-index: calc(var(--ninja-z) + 200);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s;
+  box-shadow: 0 0 16px rgba(246,173,85,0.2);
+  white-space: nowrap;
+}
+
+#jutsu-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   8. MOBILE HIDE — sembunyikan elemen berat di layar kecil
+───────────────────────────────────────────────────────────── */
+@media (max-width: 767px) {
+  #pixel-ninja,
+  #naruto-runner,
+  #kunai-scroll,
+  .cursor-orb,
+  .konoha-watermark {
+    display: none !important;
+  }
+  /* Tetap aktifkan efek hover tombol (ringan) */
+  .smoke-particle,
+  .chidori-spark,
+  .rasengan-ring {
+    display: none !important;
+  }
+}
+
+/* Respek prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  #pixel-ninja *,
+  #naruto-runner,
+  .kunai-icon,
+  .cursor-orb {
+    animation: none !important;
+  }
+}

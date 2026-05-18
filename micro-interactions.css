@@ -1,0 +1,178 @@
+/* Isolated micro-interactions.
+   Load this file after styles.css so these enhancements stay separate. */
+
+:where(
+  a,
+  button,
+  .submit-btn,
+  .filter-btn,
+  .contact-card,
+  .certification-card,
+  .gallery-detail-link,
+  .timeline-link
+) {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    opacity 220ms ease;
+}
+
+:where(
+  button,
+  .submit-btn,
+  .filter-btn,
+  .gallery-detail-link
+):hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+}
+
+:where(
+  a,
+  button,
+  .submit-btn,
+  .filter-btn,
+  .gallery-detail-link
+):focus-visible {
+  outline: 2px solid rgba(246, 173, 85, 0.85);
+  outline-offset: 3px;
+}
+
+:where(
+  .project-card,
+  .skill-item,
+  .timeline-item,
+  .certification-card,
+  .contact-card,
+  .gallery-card,
+  .msg-item
+) {
+  animation: softFadeIn 420ms ease both;
+  transition:
+    box-shadow 220ms ease,
+    transform 220ms ease,
+    border-color 220ms ease,
+    opacity 220ms ease;
+}
+
+:where(
+  .project-card,
+  .skill-item,
+  .timeline-item,
+  .certification-card,
+  .contact-card,
+  .gallery-card,
+  .msg-item
+):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+}
+
+:where(.photo-item, .avatar-frame, .terminal-box) {
+  animation: softFadeIn 520ms ease both;
+}
+
+:where(.photo-item img, .avatar-inner, .char-svg) {
+  transition:
+    filter 220ms ease,
+    opacity 220ms ease,
+    transform 220ms ease;
+}
+
+:where(.photo-item:hover img) {
+  transform: scale(1.015);
+  filter: saturate(1.06) contrast(1.03);
+}
+
+:where(
+  input,
+  textarea,
+  .form-input,
+  .form-textarea
+) {
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+:where(
+  input,
+  textarea,
+  .form-input,
+  .form-textarea
+):focus {
+  border-color: rgba(246, 173, 85, 0.9);
+  box-shadow: 0 0 0 3px rgba(246, 173, 85, 0.18);
+}
+
+:where(.logo, .terminal-link, .nav-links a) {
+  transition:
+    color 180ms ease,
+    text-shadow 180ms ease,
+    transform 220ms ease;
+}
+
+:where(.logo, .terminal-link, .nav-links a):hover {
+  text-shadow: 0 0 14px rgba(246, 173, 85, 0.35);
+}
+
+:where(.status-badge .dot) {
+  animation: subtlePulse 1800ms ease-in-out infinite;
+}
+
+@keyframes softFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtlePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  :where(
+    button,
+    .submit-btn,
+    .filter-btn,
+    .gallery-detail-link,
+    .project-card,
+    .skill-item,
+    .timeline-item,
+    .certification-card,
+    .contact-card,
+    .gallery-card,
+    .msg-item,
+    .photo-item:hover img
+  ):hover {
+    transform: none;
+  }
+}
