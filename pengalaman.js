@@ -1,15 +1,24 @@
 (function () {
   const panel = document.getElementById("experience-panel");
 
-  // Escape HTML untuk teks dinamis (tanpa key objek yang berpotensi rusak encoding)
+  // Perbaikan fungsi escape HTML agar entities-nya valid
   function escapeHtml(value) {
-    const s = String(value);
+    const s = String(value ?? "");
     return s
       .replace(/&/g, "&amp;")
-      .replace(/</g, "<")
-      .replace(/>/g, ">")
-      .replace(/\"/g, """)
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
+  }
+
+  // Pengaman ekstra untuk attribute src (XSS Attack via javascript: protocol)
+  function sanitizeSrc(url) {
+    const cleanUrl = String(url ?? "").trim();
+    if (cleanUrl.toLowerCase().startsWith("javascript:")) {
+      return "images/photo-placeholder.svg";
+    }
+    return escapeHtml(cleanUrl);
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -29,7 +38,7 @@
     return;
   }
 
-  const experienceGroup = portfolioData.timelines.find((group) => group.title === "PENGALAMAN");
+  const experienceGroup = portfolioData.timelines.find((group) => group && group.title === "PENGALAMAN");
 
   if (!experienceGroup) {
     const availableTitles = portfolioData.timelines
@@ -49,10 +58,10 @@
   }
 
   const items = experienceGroup.items || [];
-  const item = items.find((entry) => entry.id === selectedId);
+  const item = items.find((entry) => entry && entry.id === selectedId);
 
   if (!item) {
-    const availableIds = items.map((i) => i.id).filter(Boolean).slice(0, 12);
+    const availableIds = items.map((i) => i?.id).filter(Boolean).slice(0, 12);
 
     panel.innerHTML = `
       <span class="section-tag">// PENGALAMAN</span>
@@ -66,8 +75,10 @@
     return;
   }
 
+  // Mengubah title dokumen secara dinamis
   document.title = `${item.title} | Farhan Rahmadil Arsi Dev`;
 
+  // Render HTML utama, penanganan error gambar menggunakan inline 'onerror' untuk performa lebih baik
   panel.innerHTML = `
     <span class="section-tag">// PENGALAMAN</span>
     <h1 class="experience-title">${escapeHtml(item.title)}</h1>
@@ -87,7 +98,9 @@
         <div class="photo-grid">
           ${item.photos.map((photo) => `
             <figure class="photo-item">
-              <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || item.title)}">
+              <img src="${sanitizeSrc(photo.src)}" 
+                   alt="${escapeHtml(photo.alt || item.title)}"
+                   onerror="this.onerror=null; this.src='images/photo-placeholder.svg';">
               ${photo.caption ? `<figcaption>${escapeHtml(photo.caption)}</figcaption>` : ""}
             </figure>
           `).join("")}
@@ -100,15 +113,4 @@
       `}
     </div>
   `;
-
-  document.querySelectorAll(".photo-item img").forEach((image) => {
-    image.addEventListener(
-      "error",
-      () => {
-        image.src = "images/photo-placeholder.svg";
-      },
-      { once: true }
-    );
-  });
 })();
-

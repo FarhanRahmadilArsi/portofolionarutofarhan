@@ -83,57 +83,58 @@ const portfolioData = {
     {
       category: "cv",
       categoryLabel: "COMPUTER VISION",
-      title: "Computer Vision Detection System",
-      description: "Project deteksi objek berbasis computer vision untuk membaca gambar/video dan menampilkan hasil prediksi secara real-time.",
-      tech: ["Python", "OpenCV", "PyTorch", "YOLO"]
+      title: "Computer Vision JPEG TO BASE 64",
+      description: "Project deteksi objek berbasis computer vision untuk membaca gambar/video dan menampilkan hasil JPEG KE BASE 64 dan dihubungkan ke google drive yang akan dijadikan bahan livenessbuntuk gravana loki liveness pada projek grafana monitoring dashboard.",
+      tech: ["Python", "OpenCV", "Streamlit", "Google Drive API", "Google Apps Script"]
     },
     {
       category: "infra",
       categoryLabel: "INFRASTRUCTURE",
       title: "Grafana Monitoring Dashboard",
-      description: "Dashboard monitoring metrik sistem dan aplikasi menggunakan Grafana untuk membaca performa server secara visual.",
-      tech: ["Grafana", "Prometheus", "Docker"]
+      description: "Dashboard monitoring metrik sistem dan aplikasi menggunakan Grafana untuk membaca sebuah gambar apakah gambar tersebut didefinisakn sebagao alert/critical/normal dari base 64 dipecah ke jpeg dengan bantuan mosquito.",
+      tech: ["Grafana", "Loki", "Docker", "Mosquitto", "Business Media Plugin", "google drive API"]
     },
     {
       category: "database",
       categoryLabel: "DATABASE",
-      title: "Website Penjualan Biji Kopi",
-      description: "Website toko online dengan fitur manajemen produk, stok, transaksi, database, dan proses CRUD.",
-      tech: ["HTML", "CSS", "SQL", "CRUD"]
+      title: "Website Kafar High School",
+      description: "Website sekolah dengan database untuk menampilkan informasi sekolah, kurikulum, , ekstrakulikuler,tenaga didik,prestasi menggunakan PHP , bootsrap.",
+      tech: ["HTML", "CSS", "SQL", "Bootstrap", "PHP", "PhpMyAdmin"]
     },
     {
       category: "frontend",
       categoryLabel: "FRONTEND",
       title: "Website Portofolio Pribadi",
       description: "Website responsif untuk menampilkan profil, skill, pengalaman, project, dan guestbook interaktif.",
-      tech: ["HTML", "CSS", "JavaScript"]
+      tech: ["Next.Js", "Tailwind.Css", "Supabase", "Shadcn UI", "Typescript"]
     },
     {
       category: "auto",
       categoryLabel: "AUTOMATION",
-      title: "Chatbot dengan Gemini AI",
-      description: "Chatbot sederhana menggunakan integrasi API, konsep OOP, dan pemrosesan respons berbasis AI.",
-      tech: ["Python", "Streamlit", "Gemini API", "OOP"]
+      title: "JOB LINK SIGN",
+      description: "Sebuah Mockup untuk HRD Perusahaan dan pelamar atau calon pekerja ruang lingkup penyandang disabilitas tuna wicara.",
+      tech: ["UI/UX", "Prototype", "Figma"]
     },
     {
       category: "infra",
       categoryLabel: "INFRASTRUCTURE",
-      title: "Proyek IoT CCTV",
-      description: "Sistem CCTV berbasis web dan mobile dengan pemantauan real-time, login, dan enkripsi.",
-      tech: ["IoT", "Web", "Mobile"]
-    },
+      title: "BURGER BUANDEL MOCK UP",
+      description: "Sebuah mock up untuk customer yang ingin memesan burger dengan berbagai pilihan varian burger.",
+      tech: ["Figma", "UI/UX", "Prototype"],
+      url: "https://www.figma.com/design/NeYMZ6etGAIiUHEd3mN5P4/PROJEK-PROTOTYPE-FARHAN?node-id=1-2875&t=L9VoR2IuiTiDxqG1-0"
+},
     {
       category: "database",
       categoryLabel: "DATABASE",
       title: "Website Registrasi Karyawan",
       description: "Aplikasi web dengan database relasional untuk membantu digitalisasi proses registrasi HR.",
-      tech: ["PHP", "SQL", "Database"]
+      tech: ["Typescript", "Next.JS", "Tailwind.Css", "Prisma ORM", "PostgreSQL", "Shadcn UI"]
     },
     {
       category: "frontend",
       categoryLabel: "FRONTEND",
       title: "Aplikasi Penjualan Sapi",
-      description: "Aplikasi desktop CRUD cross-platform untuk pengelolaan data penjualan dan stok ternak.",
+      description: "Aplikasi desktop CRUD cross-platform untuk pengelolaan data penjualan dan stok ternak via beeware .",
       tech: ["Python", "BeeWare", "CRUD"]
     },
     {
@@ -153,7 +154,7 @@ const portfolioData = {
           date: "September 2023 - Sekarang",
           subtitle: "S1 Teknik Informatika",
           description: "Mahasiswa Teknik Informatika dengan fokus pada data, pengembangan web, software engineering, AI, dan sistem basis data.",
-          badges: ["IPK 3.62/4.00", "Data", "Web", "AI"]
+          badges: ["IPK 3.62/4.00", "Data", "Web", "AI","coding", "Mobile Development"]
         },
         {
           title: "SMA YADIKA 2 JAKARTA",
@@ -165,17 +166,17 @@ const portfolioData = {
         {
           title: "SMP 278 Jakarta",
           date: "2017 - 2020",
-          subtitle: "Aktif di OSIS, Pramuka, dan Paskibra",
+          subtitle: "Aktif di Ketua OSIS, Pramuka, dan Paskibra",
           description: "Mengembangkan pengalaman organisasi, kepemimpinan, kedisiplinan, dan kerja tim melalui kegiatan sekolah.",
           badges: ["OSIS", "Pramuka", "Paskibra"]
         },
         {
           title: "SDN TEGAL ALUR 01 PAGI",
           date: "2011 - 2017",
-          subtitle: "Aktif mengikuti ekstrakurikuler Pramuka",
+          subtitle: "Aktif mengikuti ekstrakurikuler Pramuka,Volleyball, dan Futsal",
           description: "Membangun dasar kedisiplinan, kerja sama, dan aktivitas sekolah melalui kegiatan Pramuka.",
           muted: true,
-          badges: []
+          badges: ["Pramuka", "Teamwork", "Futsal", "Volleyball"]
         }
       ]
     },
