@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/shinobi_digital_portfolio.html"
+    }
+  ]
+}
