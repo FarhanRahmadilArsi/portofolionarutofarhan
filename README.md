@@ -9,7 +9,7 @@
 ╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═════╝ ╚═╝    ╚═════╝ ╚══════╝  ╚═══╝
 ```
 
-# ⚡ Farhan Ramadhan — Shinobi Digital Portfolio
+# ⚡ Farhan Rahmadil Arsy — Shinobi Digital Portfolio
 
 **`Informatics Engineering Student & IT Architecture Intern`**
 
