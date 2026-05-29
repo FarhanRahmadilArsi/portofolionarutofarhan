@@ -99,7 +99,8 @@ const portfolioData = {
       categoryLabel: "DATABASE",
       title: "Website Kafar High School",
       description: "Website sekolah dengan database untuk menampilkan informasi sekolah, kurikulum, , ekstrakulikuler,tenaga didik,prestasi menggunakan PHP , bootsrap.",
-      tech: ["HTML", "CSS", "SQL", "Bootstrap", "PHP", "PhpMyAdmin"]
+      tech: ["HTML", "CSS", "SQL", "Bootstrap", "PHP", "PhpMyAdmin"],
+      url: "https://kafarhighschool.vercel.app"
     },
     {
       category: "frontend",
@@ -113,7 +114,8 @@ const portfolioData = {
       categoryLabel: "AUTOMATION",
       title: "JOB LINK SIGN",
       description: "Sebuah Mockup untuk HRD Perusahaan dan pelamar atau calon pekerja ruang lingkup penyandang disabilitas tuna wicara.",
-      tech: ["UI/UX", "Prototype", "Figma"]
+      tech: ["UI/UX", "Prototype", "Figma"],
+      url: "https://www.figma.com/design/z1eWYnhmkx8QfMn61YLkCW/JOBLINK-SIGN-FARHAN?node-id=2-2&t=NKoQHb4snw0VCHii-1"
     },
     {
       category: "infra",
@@ -121,14 +123,15 @@ const portfolioData = {
       title: "BURGER BUANDEL MOCK UP",
       description: "Sebuah mock up untuk customer yang ingin memesan burger dengan berbagai pilihan varian burger.",
       tech: ["Figma", "UI/UX", "Prototype"],
-      url: "https://www.figma.com/design/NeYMZ6etGAIiUHEd3mN5P4/PROJEK-PROTOTYPE-FARHAN?node-id=1-2875&t=L9VoR2IuiTiDxqG1-0"
+      url: "https://www.figma.com/design/NeYMZ6etGAIiUHEd3mN5P4/PROJEK-PROTOTYPE-FARHAN?node-id=0-1&t=Q0t4rVHaYezlOfVa-1"
 },
     {
       category: "database",
       categoryLabel: "DATABASE",
       title: "Website Registrasi Karyawan",
       description: "Aplikasi web dengan database relasional untuk membantu digitalisasi proses registrasi HR.",
-      tech: ["Typescript", "Next.JS", "Tailwind.Css", "Prisma ORM", "PostgreSQL", "Shadcn UI"]
+      tech: ["Typescript", "Next.JS", "Tailwind.Css", "Prisma ORM", "PostgreSQL", "Shadcn UI"],
+      url: "https://yuksukses.vercel.app"
     },
     {
       category: "frontend",
