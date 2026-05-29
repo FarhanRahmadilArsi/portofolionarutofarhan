@@ -637,10 +637,18 @@ section {
 }
 
 .project-card {
+  display: block;
   position: relative;
   overflow: hidden;
+  color: inherit;
+  cursor: default;
   padding: 16px;
+  text-decoration: none;
   transition: all 0.2s;
+}
+
+a.project-card {
+  cursor: pointer;
 }
 
 .project-card::before {
@@ -1396,7 +1404,6 @@ section {
   font-family: "Share Tech Mono", monospace;
   font-size: 14px;
 }
-
 
 
 

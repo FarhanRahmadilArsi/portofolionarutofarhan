@@ -75,16 +75,22 @@
     });
 
     projectsGrid.innerHTML = projects
-      .map((project) => `
-        <article class="project-card card-${project.category}">
+      .map((project) => {
+        const tagName = project.url ? "a" : "article";
+        const isExternalLink = project.url && /^https?:\/\//.test(project.url);
+        const linkAttrs = project.url ? ` href="${escapeHtml(project.url)}"${isExternalLink ? ' target="_blank" rel="noopener noreferrer"' : ""}` : "";
+
+        return `
+        <${tagName} class="project-card card-${project.category}"${linkAttrs}>
           <span class="card-type-tag tag-${project.category}">${escapeHtml(project.categoryLabel)}</span>
           <h3 class="card-title">${escapeHtml(project.title)}</h3>
           <p class="card-desc">${escapeHtml(project.description)}</p>
           <div class="tech-tags">
             ${project.tech.map((tech) => `<span class="tech-tag">${escapeHtml(tech)}</span>`).join("")}
           </div>
-        </article>
-      `)
+        </${tagName}>
+      `;
+      })
       .join("");
   }
 
