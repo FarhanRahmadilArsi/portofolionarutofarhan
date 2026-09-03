@@ -316,7 +316,7 @@ const portfolioData = {
               caption: "Dokumentasi Webinar DigiBuild 2025"
             },
             {
-              src: "images/moderator.png",
+              src: "images/Moderator.png",
               alt: "Moderator Webinar DigiBuild 2025",
               caption: "Sertifikat Moderator"
             },
