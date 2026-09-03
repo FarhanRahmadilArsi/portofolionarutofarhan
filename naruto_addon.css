@@ -536,3 +536,105 @@
     animation: none !important;
   }
 }
+/* ===== Photo Lightbox (perbaikan gallery: lihat foto lebih besar & jelas) ===== */
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(5, 7, 10, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.photo-lightbox.is-open {
+  display: flex;
+}
+
+.photo-lightbox-inner {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.photo-lightbox-inner img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel2);
+}
+
+.photo-lightbox-caption {
+  color: var(--muted);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 13px;
+  text-align: center;
+  max-width: 100%;
+}
+
+.photo-lightbox-close,
+.photo-lightbox-prev,
+.photo-lightbox-next {
+  position: absolute;
+  top: 0;
+  background: rgba(22, 27, 34, 0.85);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: pointer;
+  border-radius: 999px;
+  width: 42px;
+  height: 42px;
+  font-size: 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.photo-lightbox-close {
+  top: -18px;
+  right: -6px;
+}
+
+.photo-lightbox-prev,
+.photo-lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.photo-lightbox-prev {
+  left: -6px;
+}
+
+.photo-lightbox-next {
+  right: -6px;
+}
+
+.photo-lightbox-close:hover,
+.photo-lightbox-prev:hover,
+.photo-lightbox-next:hover {
+  background: var(--konoha);
+  color: #111;
+}
+
+@media (max-width: 620px) {
+  .photo-lightbox-prev,
+  .photo-lightbox-next {
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}

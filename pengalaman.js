@@ -26,7 +26,14 @@
 
   if (!panel) return;
 
-  if (!window.portfolioData || !window.portfolioData.timelines) {
+  // Catatan perbaikan bug: data.js mendeklarasikan `portfolioData` dengan
+  // `const`, sehingga TIDAK pernah menjadi properti `window` (beda dengan
+  // deklarasi `var`). Sebelumnya kode ini memeriksa `window.portfolioData`
+  // yang akibatnya SELALU undefined walau data.js sudah termuat dengan
+  // benar — jadi halaman detail selalu menampilkan "Data belum terbaca".
+  // Fix: pakai `typeof portfolioData` untuk mengecek variabel global
+  // secara aman tanpa bergantung pada objek `window`.
+  if (typeof portfolioData === "undefined" || !portfolioData.timelines) {
     panel.innerHTML = `
       <span class="section-tag">// PENGALAMAN</span>
       <h1 class="experience-title">Data belum terbaca</h1>
@@ -78,39 +85,83 @@
   // Mengubah title dokumen secara dinamis
   document.title = `${item.title} | Farhan Rahmadil Arsi Dev`;
 
-  // Render HTML utama, penanganan error gambar menggunakan inline 'onerror' untuk performa lebih baik
-  panel.innerHTML = `
-    <span class="section-tag">// PENGALAMAN</span>
-    <h1 class="experience-title">${escapeHtml(item.title)}</h1>
-    <div class="experience-meta">
-      <span>${escapeHtml(item.date)}</span>
-      <span>${escapeHtml(item.subtitle)}</span>
-    </div>
-    <p class="experience-desc">${escapeHtml(item.description)}</p>
-    ${item.badges && item.badges.length ? `
-      <div class="tl-badges experience-badges">
-        ${item.badges.map((badge) => `<span class="tl-badge">${escapeHtml(badge)}</span>`).join("")}
-      </div>
-    ` : ""}
-    <div class="experience-photo-section">
-      <h2 class="photo-section-title">FOTO PENGALAMAN</h2>
-      ${item.photos && item.photos.length ? `
+  const isGrouped = Array.isArray(item.positions) && item.positions.length > 0;
+
+  function renderPhotos(photos, emptyHint) {
+    if (photos && photos.length) {
+      return `
         <div class="photo-grid">
-          ${item.photos.map((photo) => `
+          ${photos.map((photo) => `
             <figure class="photo-item">
               <img src="${sanitizeSrc(photo.src)}" 
                    alt="${escapeHtml(photo.alt || item.title)}"
+                   loading="lazy" decoding="async"
                    onerror="this.onerror=null; this.src='images/photo-placeholder.svg';">
               ${photo.caption ? `<figcaption>${escapeHtml(photo.caption)}</figcaption>` : ""}
             </figure>
           `).join("")}
         </div>
-      ` : `
-        <div class="photo-empty">
-          <span>FOTO BELUM DITAMBAHKAN</span>
-          <p>Tambahkan foto pada properti photos di data.js untuk pengalaman ini.</p>
+      `;
+    }
+    return `
+      <div class="photo-empty">
+        <span>FOTO BELUM DITAMBAHKAN</span>
+        <p>${escapeHtml(emptyHint)}</p>
+      </div>
+    `;
+  }
+
+  if (isGrouped) {
+    // Organisasi dengan beberapa jabatan/posisi (mis. Mercu Buana English Club)
+    const metaLine = [item.employmentType, item.totalDuration].filter(Boolean).map(escapeHtml).join(" &middot; ");
+
+    panel.innerHTML = `
+      <span class="section-tag">// PENGALAMAN</span>
+      <h1 class="experience-title">${escapeHtml(item.title)}</h1>
+      ${metaLine ? `<div class="experience-meta"><span>${metaLine}</span></div>` : ""}
+      ${item.location ? `<p class="experience-desc">${escapeHtml(item.location)}</p>` : ""}
+      <div class="position-timeline">
+        ${item.positions.map((position) => `
+          <div class="position-item">
+            <div class="position-dot"></div>
+            <div class="position-header">
+              <h3 class="position-title">${escapeHtml(position.title)}</h3>
+              <span class="position-date">${escapeHtml(position.date)}${position.duration ? ` &middot; ${escapeHtml(position.duration)}` : ""}</span>
+            </div>
+            ${position.location ? `<p class="position-location">${escapeHtml(position.location)}</p>` : ""}
+            ${position.description ? `<p class="position-desc">${escapeHtml(position.description)}</p>` : ""}
+            ${position.badges && position.badges.length ? `
+              <div class="tl-badges position-badges">
+                ${position.badges.map((badge) => `<span class="tl-badge">${escapeHtml(badge)}</span>`).join("")}
+              </div>
+            ` : ""}
+            <div class="experience-photo-section">
+              <h4 class="photo-section-title">FOTO ${escapeHtml(position.title.toUpperCase())}</h4>
+              ${renderPhotos(position.photos, `Tambahkan foto pada properti photos posisi "${position.title}" di data.js.`)}
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  } else {
+    // Organisasi/pengalaman dengan satu posisi saja (format lama, tetap didukung)
+    panel.innerHTML = `
+      <span class="section-tag">// PENGALAMAN</span>
+      <h1 class="experience-title">${escapeHtml(item.title)}</h1>
+      <div class="experience-meta">
+        <span>${escapeHtml(item.date)}</span>
+        <span>${escapeHtml(item.subtitle)}</span>
+      </div>
+      <p class="experience-desc">${escapeHtml(item.description)}</p>
+      ${item.badges && item.badges.length ? `
+        <div class="tl-badges experience-badges">
+          ${item.badges.map((badge) => `<span class="tl-badge">${escapeHtml(badge)}</span>`).join("")}
         </div>
-      `}
-    </div>
-  `;
+      ` : ""}
+      <div class="experience-photo-section">
+        <h2 class="photo-section-title">FOTO PENGALAMAN</h2>
+        ${renderPhotos(item.photos, "Tambahkan foto pada properti photos di data.js untuk pengalaman ini.")}
+      </div>
+    `;
+  }
 })();

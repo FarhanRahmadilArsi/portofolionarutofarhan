@@ -117,7 +117,7 @@
                 </div>
                 <p class="tl-sub">${escapeHtml(item.subtitle)}</p>
                 <p class="tl-desc">${escapeHtml(item.description)}</p>
-                ${item.badges.length ? `
+                ${Array.isArray(item.badges) && item.badges.length ? `
                   <div class="tl-badges">
                     ${item.badges.map((badge) => `<span class="tl-badge">${escapeHtml(badge)}</span>`).join("")}
                   </div>
@@ -136,28 +136,78 @@
     return experienceGroup ? experienceGroup.items : [];
   }
 
+  function renderPositionPhotos(photos) {
+    if (!photos || !photos.length) return "";
+    return `
+      <div class="photo-grid">
+        ${photos.map((photo) => `
+          <figure class="photo-item">
+            <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || "")}" loading="lazy" decoding="async">
+            ${photo.caption ? `<figcaption>${escapeHtml(photo.caption)}</figcaption>` : ""}
+          </figure>
+        `).join("")}
+      </div>
+    `;
+  }
+
+  function renderOrgPositions(positions) {
+    return `
+      <div class="position-timeline">
+        ${positions.map((position) => `
+          <div class="position-item">
+            <div class="position-dot"></div>
+            <div class="position-header">
+              <h4 class="position-title">${escapeHtml(position.title)}</h4>
+              <span class="position-date">${escapeHtml(position.date)}${position.duration ? ` &middot; ${escapeHtml(position.duration)}` : ""}</span>
+            </div>
+            ${position.location ? `<p class="position-location">${escapeHtml(position.location)}</p>` : ""}
+            ${position.description ? `<p class="position-desc">${escapeHtml(position.description)}</p>` : ""}
+            ${position.badges && position.badges.length ? `
+              <div class="tl-badges position-badges">
+                ${position.badges.map((badge) => `<span class="tl-badge">${escapeHtml(badge)}</span>`).join("")}
+              </div>
+            ` : ""}
+            ${renderPositionPhotos(position.photos)}
+          </div>
+        `).join("")}
+      </div>
+    `;
+  }
+
   function renderExperienceGallery() {
     const gallery = byId("experience-gallery");
     if (!gallery) return;
 
     gallery.innerHTML = getExperienceItems()
-      .map((item) => `
+      .map((item) => {
+        const isGrouped = Array.isArray(item.positions) && item.positions.length > 0;
+
+        if (isGrouped) {
+          // Organisasi dengan beberapa jabatan/posisi (mis. Mercu Buana English Club)
+          const metaLine = [item.employmentType, item.totalDuration].filter(Boolean).map(escapeHtml).join(" &middot; ");
+          return `
+            <article class="gallery-card gallery-card-grouped">
+              <div class="gallery-card-header">
+                <h3 class="certification-title">${escapeHtml(item.title)}</h3>
+                ${metaLine ? `<p class="gallery-role">${metaLine}</p>` : ""}
+                ${item.location ? `<p class="certification-desc">${escapeHtml(item.location)}</p>` : ""}
+              </div>
+              ${renderOrgPositions(item.positions)}
+              <a class="gallery-detail-link" href="${escapeHtml(item.url)}">Lihat detail pengalaman</a>
+            </article>
+          `;
+        }
+
+        // Organisasi/pengalaman dengan satu posisi saja (format lama, tetap didukung)
+        return `
         <article class="gallery-card">
           <div class="gallery-card-header">
             <span class="certification-issuer">${escapeHtml(item.date)}</span>
             <h3 class="certification-title">${escapeHtml(item.title)}</h3>
-            <p class="certification-desc">${escapeHtml(item.subtitle)}</p>
+            <p class="gallery-role">${escapeHtml(item.subtitle)}</p>
+            <p class="certification-desc">${escapeHtml(item.description)}</p>
           </div>
-          ${item.photos && item.photos.length ? `
-            <div class="photo-grid">
-              ${item.photos.map((photo) => `
-                <figure class="photo-item">
-                  <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || item.title)}">
-                  ${photo.caption ? `<figcaption>${escapeHtml(photo.caption)}</figcaption>` : ""}
-                </figure>
-              `).join("")}
-            </div>
-          ` : `
+          ${item.photos && item.photos.length ? renderPositionPhotos(item.photos) : `
             <div class="photo-empty">
               <span>FOTO BELUM DITAMBAHKAN</span>
               <p>Isi array photos di data.js untuk pengalaman ini.</p>
@@ -165,7 +215,8 @@
           `}
           <a class="gallery-detail-link" href="${escapeHtml(item.url)}">Lihat detail pengalaman</a>
         </article>
-      `)
+      `;
+      })
       .join("");
   }
 

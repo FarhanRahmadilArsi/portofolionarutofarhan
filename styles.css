@@ -1203,9 +1203,97 @@ a.project-card {
   margin-bottom: 14px;
 }
 
+.gallery-role {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border: 1px solid rgba(246, 173, 85, 0.35);
+  border-radius: 999px;
+  color: var(--konoha);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+
+/* ===== Sub-timeline posisi di dalam satu organisasi (gaya LinkedIn) ===== */
+.gallery-card-grouped .gallery-card-header {
+  margin-bottom: 18px;
+}
+
+.position-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-left: 6px;
+  padding-left: 20px;
+  border-left: 1px dashed var(--border);
+}
+
+.position-item {
+  position: relative;
+}
+
+.position-dot {
+  position: absolute;
+  left: -25px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--konoha);
+  box-shadow: 0 0 0 3px var(--panel);
+}
+
+.position-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.position-title {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.position-date {
+  flex-shrink: 0;
+  color: var(--naruto);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.position-location {
+  margin: 2px 0 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.position-desc {
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.position-badges {
+  margin-bottom: 12px;
+}
+
+.position-item .photo-grid {
+  margin-top: 10px;
+}
+
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   gap: 10px;
 }
 
@@ -1214,6 +1302,7 @@ a.project-card {
   border: 1px solid var(--border);
   border-radius: 8px;
   background: var(--panel2);
+  cursor: zoom-in;
 }
 
 .photo-item img {
@@ -1221,6 +1310,19 @@ a.project-card {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  image-rendering: auto;
+  backface-visibility: hidden;
+  transition: transform 0.25s ease;
+}
+
+.photo-item:hover img,
+.photo-item:focus-visible img {
+  transform: scale(1.04);
+}
+
+.photo-item:focus-visible {
+  outline: 2px solid var(--konoha);
+  outline-offset: 2px;
 }
 
 .photo-item figcaption {
@@ -1359,7 +1461,7 @@ a.project-card {
   }
 
   .photo-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 
   .section-header {

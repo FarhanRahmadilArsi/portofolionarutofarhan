@@ -29,7 +29,11 @@
   if (!container) return;
 
   // Cek validitas objek portfolioData
-  if (!window.portfolioData || !window.portfolioData.timelines) {
+  // (Fix: `portfolioData` di data.js dideklarasikan dengan `const`, sehingga
+  // TIDAK pernah menjadi properti `window`. Cek `window.portfolioData` di sini
+  // selalu gagal walau data.js sudah termuat, jadi halaman ini selalu
+  // menampilkan "Data portofolio tidak ditemukan". Pakai `typeof` untuk cek yang aman.)
+  if (typeof portfolioData === "undefined" || !portfolioData.timelines) {
     container.innerHTML = `<p class="certification-desc">Data portofolio tidak ditemukan. Pastikan data.js dimuat dengan benar.</p>`;
     return;
   }

@@ -143,8 +143,8 @@ const portfolioData = {
     {
       category: "auto",
       categoryLabel: "AUTOMATION",
-      title: "Colored Timer",
-      description: "Aplikasi timer untuk membantu peserta lomba melihat sisa waktu dan meringankan tugas timekeeper.",
+      title: "F'Notes",
+      description: "Aplikasi catatan digital untuk menampung ide, informasi yang kan dilakukan kedepan nya, dan refrensi penting.",
       tech: ["BeeWare", "Python", "Timer"]
     }
   ],
@@ -195,14 +195,29 @@ const portfolioData = {
           description: "Mengikuti program internship sebagai Junior Programmer dengan fokus pada pengembangan aplikasi, pemeliharaan fitur, debugging, dan dukungan teknis sistem internal.",
           photos: [
             {
-              src: "images/day1.jpeg",
+              src: "images/1.jpg",
               alt: "Dokumentasi internship BPJS Ketenagakerjaan hari pertama",
-              caption: "Internship BPJS Ketenagakerjaan"
+              caption: "Internship bersama teman di Deputi Arsitektur dan Pengembangan TI"
             },
             {
-              src: "images/day2.jpeg",
+              src: "images/2.jpg",
+              alt: "Dashboard Grafana Loki Monitoring Frauud Detection",
+              caption: "Dashboard Grafana Loki Monitoring Frauud Detection"
+            },
+            {
+              src: "images/3.jpg",
+              alt: "Detection",
+              caption: "Detection Fraud"
+            },
+            {
+              src: "images/4.jpg",
+              alt: "Dokumentasi kegiatan pengerjaan RPHUA",
+              caption: "Dokumentasi kegiatan pengerjaan Administrasi."
+            },
+            {
+              src: "images/5.jpg",
               alt: "Dokumentasi kegiatan Junior Programmer Intern BPJS Ketenagakerjaan",
-              caption: "Junior Programmer Intern"
+              caption: "Junior Programmer Intern di BPJS KETENAGAKERJAAN"
             }
           ],
           badges: ["Internship", "Junior Programmer", "Application Development", "Debugging"]
@@ -214,35 +229,79 @@ const portfolioData = {
           date: "Januari 2025 - April 2025",
           subtitle: "Logistics Operations Specialist (Sorting & Processing)",
           description: "Mendukung operasional logistik pada proses sorting dan processing, memastikan alur barang tertata, akurat, dan siap diproses sesuai kebutuhan operasional.",
-          photos: [],
+          photos: [
+            {
+              src: "images/kmd1.jpg",
+              alt: "Dokumentasi kegiatan operasional logistik PT KUMADA",
+              caption: "Dokumentasi kegiatan operasional logistik PT KUMADA"
+            },
+            {
+              src: "images/kmd2.jpg",
+              alt: "Dokumentasi kegiatan operasional logistik PT KUMADA",
+              caption: "Dokumentasi Gudang PT KUMADA"
+            },
+            {
+              src: "images/kmd3.jpg",
+              alt: "Dokumentasi kegiatan operasional logistik PT KUMADA",
+              caption: "Dokumentasi resi order PT KUMADA"
+            }
+          ],
           badges: ["Logistics", "Sorting", "Processing", "Operations"]
         },
         {
-          id: "dpm-fasilkom-umb",
-          title: "Dewan Perwakilan Mahasiswa Fasilkom UMB",
-          url: "https://www.instagram.com/p/DUx3DH-GI3u/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
-          date: "Septmber 2025 - Sekarang",
-          subtitle: "Anggota Komisi Pengawasan",
-          description: "Melakukan pengawasan, evaluasi, dan supervisi program kerja organisasi mahasiswa di lingkungan Fakultas Ilmu Komputer.",
-          photos: [
-            {
-              src: "images/dpm-fasilkom-umb-1.jpeg",
-              alt: "Dokumentasi Dewan Perwakilan Mahasiswa Fasilkom UMB",
-              caption: "Dokumentasi DPM Fasilkom UMB"
-            },
-            {
-              src: "images/dpm-fasilkom-umb-2.jpeg",
-              alt: "Kegiatan pengawasan DPM Fasilkom UMB",
-              caption: "Kegiatan pengawasan dan evaluasi"
-            },
-            {
-              src: "images/dpm-fasilkom-umb-3.jpeg",
-              alt: "Kegiatan organisasi DPM Fasilkom UMB",
-              caption: "Kegiatan organisasi mahasiswa"
-            }
-          ],
-          badges: ["Leadership", "Evaluation", "Organization"]
-        },
+  id: "dpm-fasilkom-umb",
+  title: "DPM Fasilkom UMB",
+  url: "https://www.instagram.com/p/DUx3DH-GI3u/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
+  employmentType: "Kontrak",
+  totalDuration: "1 thn",
+  location: "Di lokasi",
+  positions: [
+    {
+      id: "dpm-vice-chairman-kpu-fasilkom",
+      title: "Vice Chairman KPU Fasilkom",
+      date: "Mei 2026 - Saat ini",
+      duration: "5 bln",
+      location: "Jakarta, Indonesia",
+      description: "",
+      badges: [],
+      photos: []
+    },
+    {
+      id: "dpm-komisi-pengawasan",
+      title: "Komisi Pengawasan",
+      date: "Nov 2025 - Saat ini",
+      duration: "11 bln",
+      location: "Jakarta Barat, Jakarta, Indonesia",
+      description: "Melakukan pengawasan, evaluasi, dan supervisi program kerja organisasi mahasiswa di lingkungan Fakultas Ilmu Komputer.",
+      // LinkedIn nampilin "Organizational Oversight, Program Evaluation dan +4 skills" —
+      // baru 2 yang diketahui isinya, tambahkan 4 lagi kalau sudah tahu.
+      badges: ["Organizational Oversight", "Program Evaluation"],
+      // Di LinkedIn ada 7 foto (5 tampil + "+2" overlay). Baru 5 slot disiapkan,
+      // tambahkan dpm-komisi-pengawasan-6.jpg dan -7.jpg kalau mau melengkapi sisanya.
+      photos: [
+        { src: "images/a.jpg", alt: "Dokumentasi kegiatan Komisi Pengawasan DPM Fasilkom UMB", caption: "Mengawaasi Proker Himsisfo Mengajar di Sekolah" },
+        { src: "images/b.png", alt: "Kegiatan pengawasan program kerja Fasilkom", caption: "Anggota Komisi Pengawasan" },
+        { src: "images/c.jpg", alt: "Kegiatan pengawasan program kerja Fasilkom", caption: "Mengawasi Proker Himsisfo di Posyandu" },
+        { src: "images/d.jpg", alt: "Kegiatan pengawasan program kerja Fasilkom", caption: "Mengawasi Proker Himti  di lingkugan sekolah dasar" },
+        { src: "images/e.jpg", alt: "Kegiatan pengawasan program kerja Fasilkom", caption: "Mengawasi Proker Himti di lingkungan masyarakat" },
+        { src: "images/h.png", alt: "Kegiatan pengawasan program kerja Fasilkom", caption: "saya dan Teman" }
+      ]
+    },
+    {
+      id: "dpm-staff-sarpras-sidang-umum",
+      title: "Staff Sarpras Sidang Umum Fasilkom",
+      date: "Okt 2025 - Nov 2025",
+      duration: "2 bln",
+      location: "Jakarta, Indonesia",
+      description: "",
+      badges: [],
+      photos: [
+        { src: "images/f.jpg", alt: "Dokumentasi Staff Sarpras Sidang Umum Fasilkom", caption: "" },
+        { src: "images/g.jpg", alt: "Dokumentasi Staff Sarpras Sidang Umum Fasilkom", caption: "" }
+      ]
+    }
+  ]
+},
         {
           id: "webinar-digibuild-2025",
           title: "Webinar DigiBuild 2025",
@@ -257,69 +316,121 @@ const portfolioData = {
               caption: "Dokumentasi Webinar DigiBuild 2025"
             },
             {
-              src: "images/moderator.jpeg",
+              src: "images/moderator.png",
               alt: "Moderator Webinar DigiBuild 2025",
-              caption: "Moderator dan sesi webinar"
+              caption: "Sertifikat Moderator"
             },
             {
-              src: "images/sertif.jpeg",
+              src: "images/panitia webinar.png",
               alt: "Publikasi Webinar DigiBuild 2025",
-              caption: "Publikasi dan koordinasi event"
+              caption: "Sertifikat Panitia Humas Webinar"
+            },
+            {
+              src: "images/md1.png",
+              alt: "Publikasi Webinar DigiBuild 2025",
+              caption: "Moderator Webinar DigiBuild"
+            },
+            {
+              src: "images/md2.png",
+              alt: "Publikasi Webinar DigiBuild 2025",
+              caption: "Poster DigiBuild"
             }
           ],
           badges: ["Moderator", "Public Speaking", "Humas"]
         },
         {
-          id: "english-event-mbec",
-          title: "English Event MBEC",
-          url: "https://www.instagram.com/p/DRZzvwij8-x/?utm_source=ig_web_copy_link&igsh=NTc4MTIwNjQ2YQ==",
-          date: "April - Juli 2025",
-          subtitle: "Divisi Teknisi",
-          description: "Mengatur Zoom Meeting VIP, sound system, slide presentasi, live pembicara, dan timer pada kegiatan lomba.",
-          photos: [
-            {
-              src: "images/english-event-mbec-1.jpg",
-              alt: "Dokumentasi English Event MBEC",
-              caption: "Dokumentasi English Event MBEC"
-            },
-            {
-              src: "images/english-event-mbec-2.jpg",
-              alt: "Teknisi English Event MBEC",
-              caption: "Teknis Zoom dan presentasi"
-            },
-            {
-              src: "images/english-event-mbec-3.jpg",
-              alt: "Kegiatan lomba English Event MBEC",
-              caption: "Support kegiatan lomba"
-            }
-          ],
-          badges: ["Technical Support", "Event", "Zoom"]
-        },
-        {
           id: "mercu-buana-english-club",
           title: "Mercu Buana English Club",
           url: "pengalaman.html?item=mercu-buana-english-club",
-          date: "Oktober 2024 - Sekarang",
-          subtitle: "Divisi Warehouse",
-          description: "Bertanggung jawab dalam pengelolaan inventaris dan perlengkapan organisasi.",
-          photos: [
+          date: "Maret 2025 - Saat ini",
+          subtitle: "Warehouse Staff & Technical Staff",
+          description: "Berpartisipasi dalam operasional organisasi dan pelaksanaan kegiatan MBEC, termasuk dukungan teknis acara, pengelolaan inventaris, dan kerja lapangan.",
+          employmentType: "Kontrak",
+          totalDuration: "1 thn 7 bln",
+          location: "Di lokasi",
+          badges: ["Technical Support", "Event Operations", "Inventory Management"],
+          // Organisasi ini punya beberapa jabatan/posisi berbeda dari waktu ke waktu
+          // (gaya LinkedIn: 1 organisasi, beberapa sub-pengalaman di dalamnya).
+          // Urutan array = urutan tampil, dari yang paling baru ke yang paling lama.
+          positions: [
             {
-              src: "images/mercu-buana-english-club-1.jpg",
-              alt: "Dokumentasi Mercu Buana English Club",
-              caption: "Dokumentasi MBEC"
+              id: "mbec-warehouse-staff",
+              title: "Warehouse Staff",
+              date: "Agu 2025 - Saat ini",
+              duration: "1 thn 2 bln",
+              location: "Indonesia",
+              description: "Official Account of Mercu Buana English Club on Instagram: \"Meet our Warehouse Division! Our Warehouse team is responsible for managing our workspace, from the secretary room to everything related to MBEC's inventory. But that's not all. They also help create the perfect atmosphere for the MBEC Podcast, now available for you to enjoy on Spotify! Tune in, feel the vibes, and let the Warehouse take you there.\"",
+              badges: ["Inventory Management", "Human Resource Support"],
+              photos: [
+                {
+                  src: "images/wh1.png",
+                  alt: "Postingan Instagram Warehouse Division Mercu Buana English Club",
+                  caption: "Postingan Instagram Warehouse Division MBEC"
+                }
+              ]
             },
             {
-              src: "images/mercu-buana-english-club-2.jpg",
-              alt: "Kegiatan warehouse Mercu Buana English Club",
-              caption: "Pengelolaan inventaris"
+              id: "mbec-staff-lapangan-english-event-2026",
+              title: "Staff Lapangan ( English Event 2026 )",
+              date: "Mar 2026 - Jun 2026",
+              duration: "4 bln",
+              location: "Jakarta Raya, Indonesia",
+              description: "",
+              badges: [],
+              // Di LinkedIn ada 8 foto (6 tampil + 2 tersembunyi). Baru 6 slot yang disiapkan,
+              // tambahkan mbec-english-event-2026-7.jpg dan -8.jpg jika mau melengkapi sisanya.
+              photos: [
+                { src: "images/l1.png", alt: "Staff Lapangan English Event 2026", caption: "Team Lapangan" },
+                { src: "images/l3.jpg", alt: "Staff Lapangan English Event 2026", caption: "Hadiah Dan Pelakat" },
+                { src: "images/l4.jpg", alt: "Staff Lapangan English Event 2026", caption: "Seminar English Event" },
+                { src: "images/l5.png", alt: "Staff Lapangan English Event 2026", caption: "Newscast Competition" },
+                { src: "images/l6.png", alt: "Staff Lapangan English Event 2026", caption: "Story Telling Competition" }
+              ]
             },
             {
-              src: "images/mercu-buana-english-club-3.jpg",
-              alt: "Kegiatan organisasi Mercu Buana English Club",
-              caption: "Kegiatan organisasi MBEC"
+              id: "mbec-leadership-training-2026",
+              title: "Warehouse and Technician Staff Leadership Training Program 2026",
+              date: "Nov 2025 - Jan 2026",
+              duration: "3 bln",
+              location: "Jakarta Barat, Jakarta Raya, Indonesia",
+              description: "",
+              badges: [],
+              photos: [
+                { src: "images/ee20261.png", alt: "Leadership Training Program 2026", caption: "Sertifikat Panitia" },
+                { src: "images/ee20262.png", alt: "Leadership Training Program 2026", caption: "Team Warehouse" },
+                { src: "images/ee20263.png", alt: "Leadership Training Program 2026", caption: "Banner Acara" },
+                { src: "images/ee20264.png", alt: "Leadership Training Program 2026", caption: "Sebagai Teknisi" },
+                { src: "images/ee20265.png", alt: "Leadership Training Program 2026", caption: "Pembagian Hadiah Peserta" }
+              ]
+            },
+            {
+              id: "mbec-technician-oprec-2025",
+              title: "Technician Staff (OPREC & OPEN HOUSE 2025)",
+              date: "Sep 2025 - Nov 2025",
+              duration: "3 bln",
+              location: "Kembangan, Jakarta Raya, Indonesia",
+              description: "",
+              badges: [],
+              photos: [
+                { src: "images/teknisi.png", alt: "Technician Member OPREC & OPEN HOUSE 2025", caption: "Technician Member" }
+              ]
+            },
+            {
+              id: "mbec-technical-staff-english-event-2025",
+              title: "Technical Staff (English Event 2025)",
+              date: "Mar 2025 - Jul 2025",
+              duration: "5 bln",
+              location: "Indonesia",
+              description: "Mengatur Zoom Meeting VIP, sound system, slide presentasi, live pembicara, dan timer pada kegiatan lomba.",
+              badges: ["Technical Support", "Event", "Zoom"],
+              // Di LinkedIn tampak ada foto sertifikat juga di posisi ini, tambahkan
+              // mbec-technical-staff-english-event-2025-3.jpg dst kalau ada lebih dari 2.
+              photos: [
+                { src: "images/ee20251.png", alt: "Technical Staff English Event 2025", caption: "ID Card Panitia" },
+                { src: "images/ee20252.png", alt: "Sertifikat Technical Staff English Event 2025", caption: "Sertifikat" }
+              ]
             }
-          ],
-          badges: ["Inventory", "Organization"]
+          ]
         },
         {
           id: "komite-kpps",
@@ -330,19 +441,9 @@ const portfolioData = {
           description: "Membantu registrasi, verifikasi, kelancaran pemungutan suara, dan pengelolaan berkas pada aplikasi Sirekap.",
           photos: [
             {
-              src: "images/komite-kpps-1.jpg",
+              src: "images/kt.jpg",
               alt: "Dokumentasi Komite KPPS",
               caption: "Dokumentasi KPPS"
-            },
-            {
-              src: "images/komite-kpps-2.jpg",
-              alt: "Kegiatan registrasi KPPS",
-              caption: "Registrasi dan verifikasi data"
-            },
-            {
-              src: "images/komite-kpps-3.jpg",
-              alt: "Kegiatan pemungutan suara KPPS",
-              caption: "Kelancaran pemungutan suara"
             }
           ],
           muted: true,
@@ -357,19 +458,24 @@ const portfolioData = {
           description: "Mengorganisir kegiatan tahunan seperti Hari Kemerdekaan RI, malam puncak, tasyakuran, dan galang dana sosial.",
           photos: [
             {
-              src: "images/karang-taruna-rt-005-1.jpg",
+              src: "images/171.jpg",
               alt: "Dokumentasi Karang Taruna RT 005",
-              caption: "Dokumentasi Karang Taruna RT 005"
+              caption: "Dokumentasi 17 AN Lomba Makan Krupuk"
             },
             {
-              src: "images/karang-taruna-rt-005-2.jpg",
+              src: "images/172.jpg",
               alt: "Kegiatan Hari Kemerdekaan RT 005",
-              caption: "Kegiatan Hari Kemerdekaan RI"
+              caption: "Dokumentasi Briefing"
             },
             {
-              src: "images/karang-taruna-rt-005-3.jpg",
+              src: "images/173.jpg",
               alt: "Kegiatan sosial Karang Taruna RT 005",
-              caption: "Kegiatan sosial dan administrasi"
+              caption: "Dokumentasi Lomba Klereng"
+            },
+            {
+              src: "images/174.jpg",
+              alt: "Kegiatan sosial Karang Taruna RT 005",
+              caption: "Dokumentasi Lomba Balap Karung"
             }
           ],
           muted: true,
