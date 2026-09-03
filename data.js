@@ -103,6 +103,22 @@ const portfolioData = {
       url: "https://kafarhighschool.vercel.app"
     },
     {
+      category: "API",
+      categoryLabel: "REST API",
+      title: "F'Notes",
+      description: "Aplikasi pencatatan bertema kartu  catatan ditampilkan sebagai kartu indeks, lengkap dengan tab huruf awal dan stempel tanggal. Proyek ini adalah submission kedua kelas Dicoding, melanjutkan Notes App dari submission pertama dengan tambahan RESTful API (Notes API v2) sebagai sumber data Webpack sebagai module bundler, Fetch API untuk komunikasi dengan serve, Indikator loading saat proses request berlangsung",
+      tech: ["HTML", "CSS", "SQL", "Bootstrap", "PHP", "PhpMyAdmin"],
+      url: "https://noteharian.vercel.app"
+    },
+    {
+      category: "Database",
+      categoryLabel: "DATABASE",
+      title: "HanKas",
+      description: "Aplikasi pencatat pemasukan dan pengeluaran berbasis HTML, CSS, dan JavaScript murni (Vanilla JS) tanpa library atau framework eksternal. Aplikasi ini memungkinkan pengguna untuk mencatat transaksi keuangan mereka, termasuk pemasukan dan pengeluaran, serta menghitung saldo secara otomatis. Data disimpan di local storage browser, sehingga tetap tersedia meskipun halaman direfresh. Aplikasi ini juga menyediakan fitur untuk menghapus catatan transaksi yang tidak diperlukan.",
+      tech: ["HTML", "CSS", "SQL", "Bootstrap", "PHP", "PhpMyAdmin"],
+      url: "https://hankas.vercel.app"
+    },
+    {
       category: "frontend",
       categoryLabel: "FRONTEND",
       title: "Website Portofolio Pribadi",
