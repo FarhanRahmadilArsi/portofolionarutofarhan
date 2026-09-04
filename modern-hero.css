@@ -1,0 +1,530 @@
+/* ============================================================
+   MODERN HERO / LANDING LAYER — modern-hero.css
+   Non-destructive enhancement on top of styles.css + naruto_addon.css
+   Restyles ONLY layout/visuals of the hero + section headers.
+   No text content is changed here — only presentation.
+   ============================================================ */
+
+:root {
+  --mh-glow-1: rgba(237, 137, 54, 0.35);
+  --mh-glow-2: rgba(246, 173, 85, 0.18);
+  --mh-card: rgba(22, 27, 34, 0.72);
+}
+
+/* ---------- HERO SHELL ---------- */
+.hero.hero-modern {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 48px;
+  min-height: auto;
+  padding: 72px 40px 56px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero.hero-modern::before {
+  content: none; /* replaced by hero-glow */
+}
+
+.hero-glow {
+  position: absolute;
+  inset: -20% -10% auto -10%;
+  height: 140%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(560px 420px at 18% 20%, var(--mh-glow-1), transparent 70%),
+    radial-gradient(480px 380px at 90% 10%, var(--mh-glow-2), transparent 65%),
+    radial-gradient(700px 500px at 60% 100%, rgba(0, 210, 211, 0.06), transparent 60%);
+}
+
+/* ---------- LEFT COLUMN ---------- */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel);
+  padding: 6px 14px 6px 10px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.hero-kicker-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.15);
+  animation: pulse 1.5s infinite;
+}
+
+.hero-name {
+  margin: 4px 0 0;
+  font-family: "Orbitron", monospace;
+  font-weight: 900;
+  font-size: clamp(34px, 5.2vw, 62px);
+  line-height: 1.05;
+  letter-spacing: 0.5px;
+  background: linear-gradient(100deg, var(--text) 25%, var(--konoha) 55%, var(--naruto) 75%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-role {
+  max-width: 620px;
+  font-size: clamp(16px, 1.9vw, 20px);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.hero-org {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.hero-tag {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--panel2);
+  color: var(--teal);
+  font-family: "Share Tech Mono", monospace;
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 8px;
+  font-family: "Rajdhani", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.btn-primary {
+  padding: 12px 22px;
+  border: 1px solid transparent;
+  background: linear-gradient(100deg, var(--naruto), var(--konoha));
+  color: #1a1206;
+  box-shadow: 0 10px 24px -10px rgba(237, 137, 54, 0.65);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px -10px rgba(237, 137, 54, 0.8);
+}
+
+.btn-secondary {
+  padding: 12px 22px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border-color: var(--konoha);
+  color: var(--konoha);
+  transform: translateY(-2px);
+}
+
+.btn-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--muted);
+  font-family: "Orbitron", monospace;
+  font-size: 12px;
+}
+
+.btn-icon:hover,
+.btn-icon:focus {
+  border-color: var(--teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* terminal card restyled as a floating glass card, content untouched */
+.hero-terminal {
+  width: 100%;
+  margin-top: 20px;
+  background: var(--mh-card);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- RIGHT COLUMN / AVATAR ---------- */
+.avatar-section.hero-avatar-modern {
+  position: relative;
+  gap: 20px;
+}
+
+.hero-starburst {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.hero-starburst-shape {
+  width: 260px;
+  height: 260px;
+  background: linear-gradient(135deg, var(--naruto), var(--konoha));
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 15%, 70% 45%,
+    100% 50%, 70% 55%, 98% 85%, 61% 65%,
+    50% 100%, 39% 65%, 2% 85%, 30% 55%,
+    0% 50%, 30% 45%, 2% 15%, 39% 35%
+  );
+  opacity: 0.9;
+  filter: blur(0.3px);
+  animation: spin 24s linear infinite;
+}
+
+.hero-avatar-modern .avatar-frame {
+  width: 200px;
+  height: 200px;
+}
+
+.hero-avatar-modern .avatar-inner {
+  border: 3px solid var(--black);
+  box-shadow: 0 0 0 3px var(--naruto);
+}
+
+.hero-avatar-modern .char-svg {
+  width: 128px;
+  height: 140px;
+}
+
+.hero-float-chip {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--mh-card);
+  backdrop-filter: blur(10px);
+  padding: 8px 12px;
+  box-shadow: 0 16px 32px -18px rgba(0, 0, 0, 0.7);
+  animation: floatChip 4s ease-in-out infinite;
+}
+
+.hero-float-chip .chip-label {
+  font-family: "Share Tech Mono", monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+.hero-float-chip .chip-value {
+  font-family: "Orbitron", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--konoha);
+}
+
+.hero-float-chip--rank {
+  top: -6px;
+  left: -18px;
+  animation-delay: 0s;
+}
+
+.hero-float-chip--xp {
+  bottom: 54px;
+  right: -26px;
+  animation-delay: 1.3s;
+}
+
+@keyframes floatChip {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* de-emphasize the old rank badge + xp bar visuals since chips now surface them,
+   keep them in DOM (unchanged text) but visually simplified underneath avatar */
+.hero-avatar-modern .rank-badge,
+.hero-avatar-modern .xp-bar-container {
+  opacity: 0.001;
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ---------- BELIEVE-IT MARQUEE STRIP ---------- */
+.believe-marquee {
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(100deg, var(--naruto), var(--konoha));
+  padding: 10px 0;
+  transform: rotate(-0.6deg) scale(1.02);
+}
+
+.believe-track {
+  display: flex;
+  width: max-content;
+  gap: 28px;
+  animation: marquee 22s linear infinite;
+  white-space: nowrap;
+  font-family: "Orbitron", monospace;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #1a1206;
+}
+
+.believe-track span {
+  display: inline-flex;
+  align-items: center;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .believe-track,
+  .hero-starburst-shape,
+  .hero-float-chip {
+    animation: none;
+  }
+}
+
+/* ---------- MODERN SECTION HEADERS ---------- */
+.section-header {
+  align-items: baseline;
+  gap: 16px;
+}
+
+.section-tag {
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: clamp(18px, 2.4vw, 26px);
+  letter-spacing: 0.5px;
+  background: linear-gradient(100deg, var(--text) 40%, var(--konoha) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.divider-line {
+  height: 2px;
+  background: linear-gradient(90deg, var(--border), transparent);
+}
+
+/* ============================================================
+   GLOBAL MODERN LAYER — applies to ALL pages (subpages included)
+   Only visual polish: cards, buttons, badges, nav, page banners.
+   No text/content changed anywhere below.
+   ============================================================ */
+
+/* soft glow behind the top of every page, incl. subpages without a hero */
+main#main-content {
+  position: relative;
+}
+
+main#main-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 420px;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(560px 300px at 12% 0%, var(--mh-glow-1), transparent 70%),
+    radial-gradient(480px 260px at 92% 0%, var(--mh-glow-2), transparent 65%);
+}
+
+main#main-content > section:first-of-type:not(.hero):not(.hero-modern) {
+  padding-top: 52px;
+}
+
+/* nav polish */
+.site-nav {
+  gap: 24px;
+}
+
+.logo {
+  font-size: 15px;
+}
+
+.status-badge {
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* generic card lift + glass treatment across the site */
+.skill-item,
+.project-card,
+.certification-card,
+.contact-card,
+.gallery-card,
+.msg-item,
+.experience-panel,
+.tl-highlight-card,
+.photo-item,
+.guest-form {
+  border-radius: 12px;
+  background: var(--mh-card);
+  backdrop-filter: blur(6px);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skill-item:hover,
+.project-card:hover,
+.certification-card:hover,
+.contact-card:hover,
+.gallery-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 32px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* pill-style buttons reused across pages */
+.filter-btn {
+  border-radius: 999px;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  box-shadow: 0 6px 16px -8px rgba(237, 137, 54, 0.6);
+}
+
+.submit-btn {
+  border-radius: 999px;
+  box-shadow: 0 10px 24px -10px rgba(237, 137, 54, 0.65);
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.back-link,
+.gallery-detail-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.back-link:hover,
+.gallery-detail-link:hover {
+  border-color: var(--konoha);
+  transform: translateX(-2px);
+  text-decoration: none;
+}
+
+/* badges / tags rounder + consistent */
+.card-type-tag,
+.tech-tag,
+.tl-badge,
+.skill-tag,
+.certification-year,
+.experience-meta span,
+.contact-label {
+  border-radius: 999px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .hero.hero-modern {
+    grid-template-columns: 1fr;
+    padding: 48px 20px 40px;
+    text-align: left;
+  }
+
+  .hero-avatar-modern {
+    order: -1;
+    margin: 0 auto 12px;
+  }
+
+  .hero-float-chip--rank {
+    left: 4px;
+  }
+
+  .hero-float-chip--xp {
+    right: 4px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero-cta {
+    width: 100%;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .hero-starburst-shape {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-avatar-modern .avatar-frame {
+    width: 160px;
+    height: 160px;
+  }
+}

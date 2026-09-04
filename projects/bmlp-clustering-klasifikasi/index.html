@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hasil project Machine Learning: Segmentasi Nasabah & Deteksi Pola Transaksi Perbankan oleh Farhan Rahmadil Arsi.">
+  <title>Segmentasi Nasabah & Deteksi Pola Transaksi Perbankan | Farhan Rahmadil Arsi Dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../naruto_addon.css">
+  <link rel="stylesheet" href="../../modern-hero.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a>
+
+  <nav class="site-nav" aria-label="Navigasi utama">
+    <a class="logo" href="../../shinobi_digital_portfolio.html" aria-label="Farhan Dev Home">FARHAN RAHMADIL ARSI<span>.</span>DEV</a>
+    <ul class="nav-links detail-nav-links">
+      <li><a href="../../projects.html">Projects</a></li>
+      <li><a href="../../skills.html">Skills</a></li>
+    </ul>
+    <div class="status-badge" aria-label="Status detail page">
+      <span class="dot"></span>
+      ML PROJECT
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section class="experience-detail" aria-labelledby="project-title">
+      <a class="back-link" href="../../projects.html">KEMBALI KE PROJECTS</a>
+      <div class="experience-panel" id="experience-panel">
+        <span class="section-tag">// MACHINE LEARNING</span>
+        <h1 class="experience-title" id="project-title">Segmentasi Nasabah &amp; Deteksi Pola Transaksi Perbankan</h1>
+        <div class="experience-meta">
+          <span>Unsupervised Learning &middot; K-Means</span>
+          <span>Supervised Learning &middot; Decision Tree &amp; Random Forest</span>
+          <span>Python</span>
+        </div>
+        <p class="certification-desc" style="font-size: 14px; line-height: 1.7; margin-bottom: 24px;">
+          Project ini mengombinasikan <strong>Unsupervised Learning (K-Means)</strong> untuk menyegmentasikan
+          &plusmn;2.500 data transaksi perbankan dan <strong>Supervised Learning (Decision Tree &amp; Random Forest)</strong>
+          untuk melatih model klasifikasi berdasarkan segmen tersebut, dengan fokus utama menerjemahkan hasil
+          pemodelan menjadi insight bisnis yang bernilai. Submission ini dikerjakan sebagai bagian dari program
+          Belajar Machine Learning Pemula (BMLP).
+        </p>
+
+        <h2 class="messages-title" style="margin-bottom: 12px;">LIHAT HASIL PROJECT</h2>
+        <div class="certifications-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 32px;">
+          <a class="certification-card" href="clustering-report.html">
+            <span class="certification-issuer">TAHAP 1 &middot; UNSUPERVISED</span>
+            <h3 class="certification-title">Hasil Clustering (K-Means)</h3>
+            <p class="certification-desc">Notebook lengkap: EDA, pembersihan data, PCA, penentuan jumlah cluster, hingga interpretasi tiap segmen nasabah.</p>
+            <span class="certification-year">Buka laporan &rarr;</span>
+          </a>
+          <a class="certification-card" href="klasifikasi-report.html">
+            <span class="certification-issuer">TAHAP 2 &middot; SUPERVISED</span>
+            <h3 class="certification-title">Hasil Klasifikasi (Decision Tree &amp; Random Forest)</h3>
+            <p class="certification-desc">Notebook lengkap: training model dari hasil cluster, evaluasi, hingga hyperparameter tuning.</p>
+            <span class="certification-year">Buka laporan &rarr;</span>
+          </a>
+        </div>
+
+        <h2 class="messages-title" style="margin-bottom: 12px;">UNDUH BERKAS PROJECT</h2>
+        <div class="certifications-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <a class="certification-card" href="files/clustering-notebook.ipynb" download>
+            <span class="certification-issuer">NOTEBOOK</span>
+            <h3 class="certification-title">Clustering (.ipynb)</h3>
+            <p class="certification-desc">Source notebook tahap clustering, siap dibuka di Jupyter/Colab.</p>
+          </a>
+          <a class="certification-card" href="files/klasifikasi-notebook.ipynb" download>
+            <span class="certification-issuer">NOTEBOOK</span>
+            <h3 class="certification-title">Klasifikasi (.ipynb)</h3>
+            <p class="certification-desc">Source notebook tahap klasifikasi, siap dibuka di Jupyter/Colab.</p>
+          </a>
+          <a class="certification-card" href="files/data-clustering.csv" download>
+            <span class="certification-issuer">DATASET</span>
+            <h3 class="certification-title">Data Hasil Clustering (.csv)</h3>
+            <p class="certification-desc">Dataset transaksi yang sudah diberi label cluster.</p>
+          </a>
+          <a class="certification-card" href="files/data-clustering-inverse.csv" download>
+            <span class="certification-issuer">DATASET</span>
+            <h3 class="certification-title">Data Inverse (.csv)</h3>
+            <p class="certification-desc">Versi inverse-transform dari data hasil clustering.</p>
+          </a>
+          <a class="certification-card" href="files/model-clustering.h5" download>
+            <span class="certification-issuer">MODEL</span>
+            <h3 class="certification-title">Model Clustering (.h5)</h3>
+            <p class="certification-desc">Model K-Means terlatih beserta PCA-nya.</p>
+          </a>
+          <a class="certification-card" href="files/decision-tree-model.h5" download>
+            <span class="certification-issuer">MODEL</span>
+            <h3 class="certification-title">Model Decision Tree (.h5)</h3>
+            <p class="certification-desc">Model klasifikasi Decision Tree hasil tuning.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" aria-label="Footer">
+    <div class="site-footer-inner">
+      <div class="site-footer-text">© <span id="footer-year"></span> Farhan Rahmadil Arsi Dev. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var el = document.getElementById('footer-year');
+      if (el) el.textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>

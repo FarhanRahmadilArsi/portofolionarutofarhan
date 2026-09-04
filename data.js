@@ -162,7 +162,8 @@ const portfolioData = {
       categoryLabel: "Machine Learning",
       title: "Segmentasi Nasabah & Deteksi Pola Transaksi Perbankan",
       description: "Proyek ini mengombinasikan Unsupervised Learning (K-Means) untuk menyegmentasikan $\pm2.500$ data transaksi perbankan dan Supervised Learning (Decision Tree & Random Forest) untuk melatih model klasifikasi berdasarkan segmen tersebut, dengan fokus utama menerjemahkan hasil pemodelan menjadi insight bisnis yang bernilai.",
-      tech: ["Machine Learning", "Python", "supervised learning", "unsupervised learning", "K-Means", "Decision Tree", "Random Forest"]
+      tech: ["Machine Learning", "Python", "supervised learning", "unsupervised learning", "K-Means", "Decision Tree", "Random Forest"],
+      url: "projects/bmlp-clustering-klasifikasi/index.html"
     }
   ],
   timelines: [
@@ -174,21 +175,73 @@ const portfolioData = {
           date: "September 2023 - Sekarang",
           subtitle: "S1 Teknik Informatika",
           description: "Mahasiswa Teknik Informatika dengan fokus pada data, pengembangan web, software engineering, AI, dan sistem basis data.",
-          badges: ["IPK 3.62/4.00", "Data", "Web", "AI","coding", "Mobile Development"]
+          badges: ["IPK 3.62/4.00", "Data", "Web", "AI","coding", "Mobile Development"],
+          highlights: [
+            {
+              title: "DPM Fasilkom UMB",
+              role: "Vice Chairman KPU Fasilkom & Komisi Pengawasan",
+              period: "Okt 2025 - Sekarang",
+              desc: "Dewan Perwakilan Mahasiswa Fakultas Ilmu Komputer — mengawasi dan mengevaluasi program kerja organisasi mahasiswa di lingkungan Fasilkom.",
+              link: "pengalaman.html?item=dpm-fasilkom-umb"
+            },
+            {
+              title: "Mercu Buana English Club (MBEC)",
+              role: "Warehouse Staff & Technical Staff",
+              period: "Mar 2025 - Sekarang",
+              desc: "Terlibat dalam operasional organisasi dan pelaksanaan acara MBEC, mulai dari dukungan teknis acara, pengelolaan inventaris, hingga kerja lapangan.",
+              link: "pengalaman.html?item=mercu-buana-english-club"
+            },
+            {
+              title: "Magang (Internship)",
+              role: "Junior Programmer & Technical Writer Intern — BPJS Ketenagakerjaan",
+              period: "Apr - Sep 2026",
+              desc: "Mengikuti program magang sebagai Junior Programmer dengan fokus pada pengembangan aplikasi, pemeliharaan fitur, debugging, dan dukungan teknis sistem internal.",
+              link: "pengalaman.html?item=bpjs-ketenagakerjaan-internship"
+            }
+          ]
         },
         {
           title: "SMA YADIKA 2 JAKARTA",
           date: "Juli 2020 - Mei 2023",
           subtitle: "Matematika dan Ilmu Pengetahuan Alam (MIPA)",
           description: "Aktif sebagai Ketua OSIS dan pernah mewakili Jakarta Barat dalam lomba cerdas cermat sejarah tingkat DKI.",
-          badges: ["Ketua OSIS", "MIPA", "Teamwork", "Communication"]
+          badges: ["Ketua OSIS", "MIPA", "Teamwork", "Communication"],
+          photos: [
+            {
+              src: "images/pdi1.jpg",
+              alt: "Lomba Cerdas Cermat Sejarah tingkat DKI Jakarta",
+              caption: "Lomba Cerdas Cermat Sejarah tingkat DKI Jakarta"
+            },
+            {
+              src: "images/pdi2.jpg",
+              alt: "Lomba Cerdas Cermat Sejarah tingkat DKI Jakarta",
+              caption: "My Team"
+            },
+            {
+              src: "images/pdi3.png",
+              alt: "Lomba Cerdas Cermat Sejarah tingkat DKI Jakarta",
+              caption: "Berhasil Meraih Juara 2"
+            }
+          ]  
         },
         {
           title: "SMP 278 Jakarta",
           date: "2017 - 2020",
           subtitle: "Aktif di Ketua OSIS, Pramuka, dan Paskibra",
           description: "Mengembangkan pengalaman organisasi, kepemimpinan, kedisiplinan, dan kerja tim melalui kegiatan sekolah.",
-          badges: ["OSIS", "Pramuka", "Paskibra"]
+          badges: ["OSIS", "Pramuka", "Paskibra"],
+          photos: [
+            {
+              src: "images/smp1.png",
+              alt: "Kegiatan OSIS SMP 278 Jakarta",
+              caption: "Kegiatan OSIS SMP 278 Jakarta"
+            },
+            {
+              src: "images/smp2.jpg",
+              alt: "Kegiatan OSIS SMP 278 Jakarta",
+              caption: "Sertifikat OSIS" 
+            }
+          ]
         },
         {
           title: "SDN TEGAL ALUR 01 PAGI",
@@ -499,6 +552,38 @@ const portfolioData = {
           badges: ["Leadership", "Administration", "Community"]
         }
       ]
+    }
+  ],
+  // Satu sumber data kontak dipakai bareng oleh Home (#contact-sec)
+  // dan halaman Contact & Guestbook, dirender lewat renderContact() di script.js.
+  contact: [
+    {
+      type: "phone",
+      label: "Phone",
+      value: "+62 877-8713-9143 / +62 882-9124-7968",
+      href: "tel:+6287787139143",
+      copyValue: "+6287787139143"
+    },
+    {
+      type: "whatsapp",
+      label: "WhatsApp",
+      value: "Chat via WhatsApp",
+      href: "https://wa.me/6287787139143",
+      external: true
+    },
+    {
+      type: "email",
+      label: "Email",
+      value: "f2482056@gmail.com",
+      href: "mailto:f2482056@gmail.com",
+      copyValue: "f2482056@gmail.com"
+    },
+    {
+      type: "linkedin",
+      label: "LinkedIn",
+      value: "farhanganteng09",
+      href: "https://www.linkedin.com/in/farhanganteng09/",
+      external: true
     }
   ],
   messages: [

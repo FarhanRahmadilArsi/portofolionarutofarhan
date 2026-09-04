@@ -65,6 +65,55 @@
   }
 
   const items = experienceGroup.items || [];
+
+  // Mode overview: kalau tidak ada ?item=... di URL, tampilkan daftar semua
+  // pengalaman (mirip kolom PENGALAMAN yang dulu ada di Timeline), masing-masing
+  // link ke detailnya sendiri (pengalaman.html?item=...) atau ke sumber aslinya
+  // kalau item itu memang di-set pakai link eksternal (mis. postingan Instagram).
+  if (!selectedId) {
+    document.title = "Pengalaman | Farhan Rahmadil Arsi Dev";
+
+    const backLink = document.getElementById("back-link");
+    if (backLink) backLink.style.display = "none";
+
+    panel.innerHTML = `
+      <span class="section-tag">// PENGALAMAN</span>
+      <h1 class="experience-title">RIWAYAT PENGALAMAN</h1>
+      <p class="experience-desc">
+        Organisasi kampus, magang, kepanitiaan, dan kegiatan sosial yang pernah saya jalani.
+        Klik salah satu untuk melihat detail dan dokumentasi fotonya.
+      </p>
+      <div class="timeline" style="margin-top: 20px;">
+        ${items.map((item) => {
+          const isGrouped = Array.isArray(item.positions) && item.positions.length > 0;
+          const tagName = item.url ? "a" : "article";
+          const isExternalLink = item.url && /^https?:\/\//.test(item.url);
+          const linkAttrs = item.url ? ` href="${sanitizeSrc(item.url)}"${isExternalLink ? ' target="_blank" rel="noopener noreferrer"' : ""}` : "";
+          const subtitle = item.subtitle || (isGrouped ? [item.employmentType, item.totalDuration].filter(Boolean).join(" · ") : "");
+          const badges = isGrouped ? [] : item.badges;
+
+          return `
+          <${tagName} class="timeline-item ${item.url ? "timeline-link" : ""}"${linkAttrs}>
+            <div class="timeline-dot ${item.muted ? "is-muted" : ""}"></div>
+            <div class="tl-header">
+              <h4 class="tl-title">${escapeHtml(item.title)}</h4>
+              <span class="tl-date">${escapeHtml(item.date || "")}</span>
+            </div>
+            ${subtitle ? `<p class="tl-sub">${escapeHtml(subtitle)}</p>` : ""}
+            ${item.description ? `<p class="tl-desc">${escapeHtml(item.description)}</p>` : ""}
+            ${Array.isArray(badges) && badges.length ? `
+              <div class="tl-badges">
+                ${badges.map((badge) => `<span class="tl-badge">${escapeHtml(badge)}</span>`).join("")}
+              </div>
+            ` : ""}
+          </${tagName}>
+        `;
+        }).join("")}
+      </div>
+    `;
+    return;
+  }
+
   const item = items.find((entry) => entry && entry.id === selectedId);
 
   if (!item) {
