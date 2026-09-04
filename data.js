@@ -121,9 +121,10 @@ const portfolioData = {
     {
       category: "frontend",
       categoryLabel: "FRONTEND",
-      title: "Website Portofolio Pribadi",
-      description: "Website responsif untuk menampilkan profil, skill, pengalaman, project, dan guestbook interaktif.",
-      tech: ["Next.Js", "Tailwind.Css", "Supabase", "Shadcn UI", "Typescript"]
+      title: "Website Portofolio Personal (HTML & CSS Native)",
+      description: "Website portofolio responsif yang dibangun murni menggunakan HTML semantic dan CSS Flexbox tanpa framework. Dibuat dari nol sebagai proyek akhir (submission) kelas \"Belajar Dasar Pembuatan Web di Dicoding\" untuk memperkuat kembali pemahaman fondasi pengembangan web.",
+      tech: ["HTML", "CSS Native", "Responsive Design", "Semantic HTML", "Flexbox"],
+      url: "https://farhannsimple.vercel.app"
     },
     {
       category: "auto",
@@ -146,7 +147,7 @@ const portfolioData = {
       categoryLabel: "DATABASE",
       title: "Website Registrasi Karyawan",
       description: "Aplikasi web dengan database relasional untuk membantu digitalisasi proses registrasi HR.",
-      tech: ["Typescript", "Next.JS", "Tailwind.Css", "Prisma ORM", "PostgreSQL", "Shadcn UI"],
+      tech: ["Typescript", "Next.JS", "Tailwind.Css"],
       url: "https://yuksukses.vercel.app"
     },
     {
@@ -157,11 +158,11 @@ const portfolioData = {
       tech: ["Python", "BeeWare", "CRUD"]
     },
     {
-      category: "auto",
-      categoryLabel: "AUTOMATION",
-      title: "F'Notes",
-      description: "Aplikasi catatan digital untuk menampung ide, informasi yang kan dilakukan kedepan nya, dan refrensi penting.",
-      tech: ["BeeWare", "Python", "Timer"]
+      category: "Machine Learning",
+      categoryLabel: "Machine Learning",
+      title: "Segmentasi Nasabah & Deteksi Pola Transaksi Perbankan",
+      description: "Proyek ini mengombinasikan Unsupervised Learning (K-Means) untuk menyegmentasikan $\pm2.500$ data transaksi perbankan dan Supervised Learning (Decision Tree & Random Forest) untuk melatih model klasifikasi berdasarkan segmen tersebut, dengan fokus utama menerjemahkan hasil pemodelan menjadi insight bisnis yang bernilai.",
+      tech: ["Machine Learning", "Python", "supervised learning", "unsupervised learning", "K-Means", "Decision Tree", "Random Forest"]
     }
   ],
   timelines: [
